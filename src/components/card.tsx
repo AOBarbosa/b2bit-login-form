@@ -11,7 +11,7 @@ export function Card({ children, variant }: CardTypeProps) {
       className={
         variant === 'login-form'
           ? 'flex h-card w-96 flex-col items-center justify-center space-y-9 rounded-2xl bg-white drop-shadow-card sm:w-card'
-          : 'flex h-80 w-96 flex-col items-center justify-center space-y-9 rounded-2xl bg-white drop-shadow-card sm:w-card'
+          : 'flex size-96 flex-col items-center justify-center space-y-5 rounded-2xl bg-white drop-shadow-card sm:w-card'
       }
     >
       {children}
