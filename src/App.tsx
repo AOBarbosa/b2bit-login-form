@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './global.css'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export function App() {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <main className="flex min-h-screen flex-col items-center justify-center bg-zinc-200 antialiased">
+      <>
+        <div className="flex h-card w-96 flex-col items-center justify-center space-y-9 rounded-2xl bg-white drop-shadow-card sm:w-card">
+          <h1 className="font-logo text-9xl font-bold tracking-tighter text-primary-blue">
+            b2b<span className="text-primary-yellow">it</span>
+          </h1>
+
+          <form className="flex w-full flex-col space-y-7 px-6">
+            <section className="flex w-full flex-col space-y-2">
+              <label htmlFor="email">E-mail</label>
+              <input
+                id="email"
+                className="h-14 rounded-lg bg-zinc-100 p-5 focus:border-primary-blue focus:outline-none focus:ring-1 focus:ring-primary-blue"
+                type="text"
+                placeholder="@gmail.com"
+              />
+            </section>
+
+            <section className="flex w-full flex-col space-y-2">
+              <label htmlFor="password">Password</label>
+              <input
+                id="password"
+                className="h-14 rounded-lg bg-zinc-100 p-5 focus:border-primary-blue focus:outline-none focus:ring-1 focus:ring-primary-blue"
+                type="password"
+                placeholder="*****************"
+              />
+            </section>
+
+            <button
+              type="submit"
+              className="h-14 rounded-lg bg-primary-blue text-zinc-50 hover:bg-primary-blue/90"
+            >
+              Sign In
+            </button>
+          </form>
+        </div>
+      </>
+    </main>
   )
 }
-
-export default App
