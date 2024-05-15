@@ -11,21 +11,15 @@ export function SignInForm() {
     try {
       const response = await api.post('login/', values)
 
-      localStorage.setItem(
-        'refreshToken',
-        JSON.stringify(response.data.tokens.refresh),
-      )
+      localStorage.setItem('refreshToken', response.data.tokens.refresh)
 
-      localStorage.setItem(
-        'accessToken',
-        JSON.stringify(response.data.tokens.access),
-      )
+      localStorage.setItem('accessToken', response.data.tokens.access)
 
       console.log(response.data)
 
       navigate('/profile')
     } catch (error) {
-      toast.error('Não foi possível realizar login. Tente novamente.')
+      toast.error('Email ou Senha incorretos. Tente novamente.')
 
       console.log(error)
     }
