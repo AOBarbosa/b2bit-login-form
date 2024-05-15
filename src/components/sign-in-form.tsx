@@ -1,20 +1,29 @@
 import { useFormik } from 'formik'
-import { redirect } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
 
 import { api } from '../lib/axios'
 
 export function SignInForm() {
+  const navigate = useNavigate()
+
   async function handleSignInForm() {
     try {
       const response = await api.post('login/', values)
 
-      // TODO: Save token in local storage and then it should be able to login
-      localStorage.setItem('token', response.data.token) // Save token in local storage
+      localStorage.setItem(
+        'refreshToken',
+        JSON.stringify(response.data.tokens.refresh),
+      )
+
+      localStorage.setItem(
+        'accessToken',
+        JSON.stringify(response.data.tokens.access),
+      )
 
       console.log(response.data)
 
-      redirect('/profile')
+      navigate('/profile')
     } catch (error) {
       toast.error('Não foi possível realizar login. Tente novamente.')
 

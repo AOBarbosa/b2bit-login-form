@@ -1,6 +1,47 @@
+import { useEffect } from 'react'
+
 import { Card } from '../../components/card'
+import { api } from '../../lib/axios'
 
 export function ProfilePage() {
+  // async function fetchUserData() {
+  //   // Replace with your JWT
+  //   const token = localStorage.getItem('refreshToken')
+  //   const config = {
+  //     headers: {
+  //       Authorization: `Bearer ${token}`,
+  //     },
+  //   }
+
+  //   try {
+  //     const response = await api.get('/profile', config)
+  //     console.log(response.data)
+  //   } catch (error) {
+  //     console.error('Failed to fetch user data:', error)
+  //   }
+  // }
+
+  // fetchUserData()
+
+  async function fetchUserData() {
+    const token = localStorage.getItem('accessToken')
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+    try {
+      const response = await api.get('/profile/', config)
+      console.log(response.data)
+    } catch (error) {
+      console.error('Failed to fetch user data:', error)
+    }
+  }
+
+  useEffect(() => {
+    fetchUserData()
+  }, [])
+
   return (
     <div className="flex h-screen w-full flex-col bg-slate-200 antialiased">
       <header className="flex h-20 items-center justify-end bg-white px-5 sm:px-9">
