@@ -1,30 +1,43 @@
-# React + TypeScript + Vite
+# B2BIT Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project was developed for an internship application process.
 
-Currently, two official plugins are available:
+It's a login form with validation and a profile page displaying user data.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting started
 
-## Expanding the ESLint configuration
+First, clone the project using the following command.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+```bash
+git clone https://github.com/AOBarbosa/b2bit-login-form.git
+```
 
-- Configure the top-level `parserOptions` property like this:
+Then access the project file
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
+```bash
+cd b2bit-login-form
+```
+
+Now you just need to install the dependencies, and run the project.
+
+```bash
+npm i
+npm run dev
+```
+
+## How the project works
+
+In your browser youll need to access the '/sign-in' page to login. After that you will fill the form fields with the following credentials:
+
+```json
+{
+    "email": "cliente@youdrive.com",
+    "password": "password"
 }
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Once the form is submitted, the app will make a request for the api, and, if succeeds,  will generate a jwt token that will be stored in the local storage. Then, the token will be used to authenticate the user to the profile page. Finally, youll be redireted to the profile page.
+
+In the profile page, youll find a card with the user information, and a Logout button in the page header.
+
+When the user is logged out, the tokens will be erased from the local storage, and youll be redirected to the login form page.

@@ -42,6 +42,7 @@ export function SignInForm() {
           id="email"
           name="email"
           type="email"
+          placeholder="@gmail.com"
           onChange={handleChange}
           value={values.email}
           className="h-14 rounded-lg bg-zinc-100 p-5 focus:border-primary-blue focus:outline-none focus:ring-1 focus:ring-primary-blue"
@@ -54,6 +55,7 @@ export function SignInForm() {
           id="password"
           name="password"
           type="password"
+          placeholder="************"
           onChange={handleChange}
           value={values.password}
           className="h-14 rounded-lg bg-zinc-100 p-5 focus:border-primary-blue focus:outline-none focus:ring-1 focus:ring-primary-blue"
@@ -68,55 +70,4 @@ export function SignInForm() {
       </button>
     </form>
   )
-
-  //   function handleSubmit(values: SignInFormProps) {
-  //     // try {
-  //     //   const response = await api.post('/login/', values)
-  //     //   console.log(response.data)
-  //     // } catch (error) {
-  //     //   console.log('Deu merda...')
-  //     // }
-  //     alert(JSON.stringify(values, null, 2))
-  //   }
-
-  //   return (
-  //     <div className="w-full">
-  //       <Formik
-  //         initialValues={{ email: '', password: '' }}
-  //         validationSchema={SignInSchema}
-  //         onSubmit={handleSubmit}
-  //       >
-  //         <Form>
-  //           <div className="flex w-full flex-col space-y-7 px-6">
-  //             <div className="flex w-full flex-col space-y-2">
-  //               <label htmlFor="email">E-mail</label>
-  //               <Field
-  //                 name="email"
-  //                 className="h-14 rounded-lg bg-zinc-100 p-5 focus:border-primary-blue focus:outline-none focus:ring-1 focus:ring-primary-blue"
-  //                 type="email"
-  //                 placeholder="@gmail.com"
-  //               />
-  //             </div>
-
-  //             <div className="flex w-full flex-col space-y-2">
-  //               <label htmlFor="password">Password</label>
-  //               <Field
-  //                 id="password"
-  //                 className="h-14 rounded-lg bg-zinc-100 p-5 focus:border-primary-blue focus:outline-none focus:ring-1 focus:ring-primary-blue"
-  //                 type="password"
-  //                 placeholder="*****************"
-  //               />
-  //             </div>
-
-  //             <button
-  //               type="submit"
-  //               className="h-14 rounded-lg bg-primary-blue text-zinc-50 hover:bg-primary-blue/90"
-  //             >
-  //               Sign In
-  //             </button>
-  //           </div>
-  //         </Form>
-  //       </Formik>
-  // </div>
-  //   )
 }
