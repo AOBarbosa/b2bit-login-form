@@ -13,5 +13,10 @@ test('logout successfully', async ({ page }) => {
 
   await page.getByRole('button', { name: 'Logout' }).click()
 
-  await expect(page).toHaveURL('/sign-in')
+  await page.waitForTimeout(2000)
+
+  const toast = page.getByText('Logout efetuado com sucesso!')
+
+  expect(toast).toBeVisible()
+  expect(page).toHaveURL('/sign-in')
 })
