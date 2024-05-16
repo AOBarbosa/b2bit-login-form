@@ -23,20 +23,11 @@ export function ProfilePage() {
 
   async function fetchProfileData() {
     try {
-      const accessToken = localStorage.getItem('accessToken')
-      const headers = { Authorization: `Bearer ${accessToken}` }
-
-      const response = await api.get('/profile/', { headers })
-
-      console.log(response.data)
-
-      toast.success('Login efetuado com sucesso!')
+      const response = await api.get('/profile')
 
       return response.data
     } catch (error) {
       console.log(error)
-
-      navigate('/sign-in')
     }
   }
 

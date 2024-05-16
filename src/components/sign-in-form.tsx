@@ -15,8 +15,6 @@ export function SignInForm() {
 
       localStorage.setItem('accessToken', response.data.tokens.access)
 
-      console.log(response.data)
-
       navigate('/profile')
     } catch (error) {
       toast.error('Email ou Senha incorretos. Tente novamente.')
