@@ -64,7 +64,7 @@ For the unit tests the following technollogies were used:
 
 And for the e2e tests the following technologies were used:
 
--[Playwright](https://playwright.dev/)
+- [Playwright](https://playwright.dev/)
 
 ### Unit tests coverage
 
